@@ -1,24 +1,32 @@
-import logo from './logo.svg';
+import { useState } from 'react'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import './App.css';
+import ProductForm from './components/ProductForm'
+import Shop from './components/Shop'
 
 function App() {
+
+  const [productList, setProductList] = useState([
+    {
+      title: "Gaming Computer",
+      price: 1500,
+      description: "Gaming, Streaming, Work-Station"
+    }
+  ])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="bg-dark p-3">
+        <nav className='d-flex p-2 justify-content-evenly'>
+          <Link to='/display'>Display All</Link>
+          <Link to='/create'>Create</Link>
+        </nav>
+        <Routes>
+          <Route path='/display' element={<Shop />} />
+          <Route path='/create' element={<ProductForm productList={productList} setProductList={setProductList} />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
