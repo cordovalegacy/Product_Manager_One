@@ -17,12 +17,12 @@ function App() {
   return (
     <BrowserRouter>
       <div className="bg-dark p-3">
-        <nav className='d-flex p-2 justify-content-evenly'>
+        <nav className='d-flex p-4 justify-content-evenly'>
           <Link to='/display'>Display All</Link>
           <Link to='/create'>Create</Link>
         </nav>
         <Routes>
-          <Route path='/display' element={<Shop />} />
+          <Route path='/display' element={<Shop productList={productList} setProductList={setProductList}/>} />
           <Route path='/create' element={<ProductForm productList={productList} setProductList={setProductList} />} />
         </Routes>
       </div>
