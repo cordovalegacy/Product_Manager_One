@@ -5,13 +5,16 @@ const Shop = (props) => {
 
     const {productList, setProductList} = props
 
+    console.log(Array.isArray(productList))
+
+
 
     useEffect(() => {
         axios
             .get('http://localhost:8000/api/products')
             .then((res) => {
                 console.log(res.data)
-                setProductList([...productList, res.data])
+                setProductList(res.data)
             })
             .catch((err) => {
                 console.log("Something went wrong: ", err)
@@ -22,10 +25,10 @@ const Shop = (props) => {
     return(
         <div>
             {productList.map((product, idx) => (
-                <ul className='bg-light' key={idx}>
-                    <li>{product.title}</li>
-                    <li>{product.price}</li>
-                    <li>{product.description}</li>
+                <ul className='bg-primary rounded p-4' key={idx}>
+                    <li className='text-warning'>{product.title}</li>
+                    <li className='text-warning'>{product.price}</li>
+                    <li className='text-warning'>{product.description}</li>
                 </ul>
             ))}
         </div>

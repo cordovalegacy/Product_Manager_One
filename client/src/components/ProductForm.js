@@ -30,7 +30,7 @@ const ProductForm = (props) => {
                     price: 0,
                     description: ""
                 })
-                // navigate('/display')
+                navigate('/display')
             })
             .catch((err) => {
                 console.log('Something went wrong: ', err)
@@ -40,17 +40,17 @@ const ProductForm = (props) => {
     return (
         <form onSubmit={submitHandler} className="bg-primary p-4 m-auto d-flex flex-column align-items-center w-75 rounded">
             <h4 className="text-warning">Add a product to the shop!</h4>
-            <div className="form-group p-1 text-center">
+            <div className="form-group p-2 text-center">
                 <label className="w-50" htmlFor="title">Title: </label>
                 <input className="w-100" type="text" name="title" onChange={changeHandler} />
             </div>
-            <div className="form-group p-1 text-center">
+            <div className="form-group p-2 text-center">
                 <label className="w-50" htmlFor="price">Price: </label>
                 <input className="w-100" type="number" name="price" onChange={changeHandler} />
             </div>
-            <div className="form-group p-1 text-center">
+            <div className="form-group p-2 text-center">
                 <label className="w-50" htmlFor="description">Description: </label>
-                <input className="w-100" type="text" name="description" onChange={changeHandler} />
+                <textarea className="w-100" type="text" name="description" onChange={changeHandler} />
             </div>
             <input type="submit" value="Add to Shop" />
         </form>

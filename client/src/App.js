@@ -6,20 +6,14 @@ import Shop from './components/Shop'
 
 function App() {
 
-  const [productList, setProductList] = useState([
-    {
-      title: "Gaming Computer",
-      price: 1500,
-      description: "Gaming, Streaming, Work-Station"
-    }
-  ])
+  const [productList, setProductList] = useState([])
 
   return (
     <BrowserRouter>
       <div className="bg-dark p-3">
         <nav className='d-flex p-4 justify-content-evenly'>
-          <Link to='/display'>Display All</Link>
-          <Link to='/create'>Create</Link>
+          <Link className='text-warning' to='/display'>Display All</Link>
+          <Link className='text-warning' to='/create'>Create</Link>
         </nav>
         <Routes>
           <Route path='/display' element={<Shop productList={productList} setProductList={setProductList}/>} />
